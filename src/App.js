@@ -53,15 +53,7 @@ function App() {
       <h2>Let's go for the last ride!</h2>
       <p>This is me!!</p>
       
-      {/* {expenses.map((expense) => (
-        <ExpenseItem
-          key={expense.id}
-          title={expense.title}
-          amount={expense.amount}
-          date={expense.date} 
-          locationOfExpenditure={expense.locationOfExpenditure}
-        />
-      ))} */}
+      
       {expenseItems}
     </div>
   );
