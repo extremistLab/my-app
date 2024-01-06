@@ -34,6 +34,11 @@ function App() {
     },
   ];
 
+  const addExpenseHandler = expense => {
+    console.log('In App.js');
+    console.log(expense);
+  }
+
   const expenseItems = [];
 
   for (let i = 0; i < expenses.length; i++) {
@@ -53,7 +58,7 @@ function App() {
     <div>
       <h2>Let's go for the last ride!</h2>
       <p>Put the Medal on the Pedal!!</p>
-      <NewExpense/>
+      <NewExpense onAddExpense={addExpenseHandler}/>
       {expenseItems}
       
       
