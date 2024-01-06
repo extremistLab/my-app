@@ -1,31 +1,52 @@
+import React, { useState } from 'react';
 import './ExpenseItem.css';
 import Card from '../UI/Card';
 import ExpenseDate from './ExpenseDate';
 import ExpenseDetail from './ExpenseDetail';
 
+const ExpenseItem = (props) => {
+  // Title state
+  const [title, setTitle] = useState(props.title);
 
-function ExpenseItem(props) {
-    
-    const deleteHandler = () => {
-        // Find the parent element (Card) and remove it
-        const expenseItemElement = document.getElementById(props.id);
-    
-        if (expenseItemElement) {
-          expenseItemElement.remove();
-        }
-      };
+  // Deletion state
+  const [isDeleted, setIsDeleted] = useState(false);
 
-    return (
-        <Card className="expense-item">
-            <ExpenseDate date={props.date}/>
-            <ExpenseDetail amount={props.amount}
-            locationOfExpenditure={props.locationOfExpenditure}
-            title={props.title}/>
-            <button onClick={deleteHandler}>Delete</button>
-        </Card>
-        
-    );
-}
+  // Amount state
+  const [amount, setAmount] = useState(props.amount);
+
+  // Click handler for title
+  const clickHandler = () => {
+    setTitle("Updated");
+    console.log(title);
+  };
+
+  // Delete handler
+  const deleteHandler = () => {
+    setIsDeleted(true);
+  };
+
+  // Update amount handler
+  const updateAmount = () => {
+    setAmount(100);
+  };
+
+  if (isDeleted) {
+    return null;
+  }
+
+  return (
+    <Card className="expense-item">
+      <ExpenseDate date={props.date} />
+      <ExpenseDetail
+        amount={amount}
+        locationOfExpenditure={props.locationOfExpenditure}
+        title={title}
+      />
+      <button onClick={deleteHandler}>Delete</button>
+      <button onClick={clickHandler}>Click</button>
+      <button onClick={updateAmount}>Set Amount to 100</button>
+    </Card>
+  );
+};
 
 export default ExpenseItem;
-
