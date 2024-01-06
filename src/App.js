@@ -1,4 +1,5 @@
-import ExpenseItem from './components/ExpenseItem';
+import ExpenseItem from './components/Expenses/ExpenseItem';
+import NewExpense from './components/NewExpense/NewExpense';
 
 function App() {
 
@@ -7,29 +8,29 @@ function App() {
       id: "e1",
       title: "Car Insurance",
       amount: 256.36,
-      date: new Date(2024, 2, 1),
       locationOfExpenditure: "Garage",
+      date: new Date(2024, 2, 1),
     },
     {
       id: "e2",
       title: "Insurance claim",
       amount: 566,
-      date: new Date(2024, 2, 4),
       locationOfExpenditure: "Insurance Office",
+      date: new Date(2024, 2, 4),
     },
     {
       id: "e3",
       title: "Paint",
       amount: 200,
-      date: new Date(2024, 2, 3),
       locationOfExpenditure: "Home Improvement Store",
+      date: new Date(2024, 2, 3),
     },
     {
       id: "e4",
       title: "Gadgets",
       amount: 869,
-      date: new Date(2024, 2, 2),
       locationOfExpenditure: "Electronics Store",
+      date: new Date(2024, 2, 2),
     },
   ];
 
@@ -51,10 +52,12 @@ function App() {
   return (
     <div>
       <h2>Let's go for the last ride!</h2>
-      <p>This is me!!</p>
-      
-      
+      <p>Put the Medal on the Pedal!!</p>
+      <NewExpense/>
       {expenseItems}
+      
+      
+      
     </div>
   );
 }
