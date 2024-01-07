@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import ExpenseItem from './components/Expenses/ExpenseItem';
+
+import Expenses from './components/Expenses/Expenses.js';
 import NewExpense from './components/NewExpense/NewExpense';
+
 
 
 const DUMMY_EXPENSES = [
@@ -45,27 +47,31 @@ function App() {
     });
   }
 
-  const expenseItems = [];
+ 
 
-  for (let i = 0; i < expenses.length; i++) {
-    const expense = expenses[i];
-    expenseItems.push(
-      <ExpenseItem
-        key={expense.id}
-        title={expense.title}
-        amount={expense.amount}
-        date={expense.date}
-        locationOfExpenditure={expense.locationOfExpenditure}
-      />
-    );
-  }
+
+  // const expenseItems = [];
+
+  // for (let i = 0; i < expenses.length; i++) {
+  //   const expense = expenses[i];
+  //   expenseItems.push(
+  //     <ExpensesFilter selected={filteredYear} onChangeFilter={filterrChangeHandler}/>
+  //     <ExpenseItem
+  //       key={expense.id}
+  //       title={expense.title}
+  //       amount={expense.amount}
+  //       date={expense.date}
+  //       locationOfExpenditure={expense.locationOfExpenditure}
+  //     />   
+  //   );
+  // }
 
   return (
     <div>
       <h2>Let's go for the last ride!</h2>
       <p>Put the Medal on the Pedal!!</p>
-      <NewExpense onAddExpense={addExpenseHandler}/>
-      {expenseItems}
+      <NewExpense onAddExpense={addExpenseHandler} />
+      <Expenses items={expenses} />
       
       
       
